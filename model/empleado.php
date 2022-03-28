@@ -46,9 +46,7 @@ class empleado
 	{
 		try 
 		{
-			$stm = $this->pdo
-			          ->prepare("SELECT * FROM empleado WHERE id = ?");
-			          
+			$stm = $this->pdo->prepare("SELECT * FROM empleado WHERE id = ?");
 
 			$stm->execute(array($id));
 			return $stm->fetch(PDO::FETCH_OBJ);
@@ -57,6 +55,22 @@ class empleado
 			die($e->getMessage());
 		}
 	}
+
+	public function ListarRoles($id)
+	{
+		try 
+		{
+			$stm = $this->pdo->prepare("SELECT rol_id FROM empleado_rol WHERE empleado_id = ?");
+
+			$stm->execute(array($id));
+			return $stm->fetchAll(PDO::FETCH_COLUMN);
+
+		} catch (Exception $e) 
+		{
+			die($e->getMessage());
+		}
+	}
+	
 
 	public function Eliminar($id)
 	{

@@ -20,6 +20,7 @@ class empleadoController{
         
         if(isset($_REQUEST['id'])){
             $empleado = $this->model->Obtener($_REQUEST['id']);
+            $empleado->roles = $this->model->ListarRoles($_REQUEST['id']);
         }
         
         require_once 'view/header.php';
@@ -60,8 +61,6 @@ class empleadoController{
                 $rol []= $value;
                 $current++;
             }
-            
-
         }    
         
         $this->model->GuardarRoles($empleado->id,$rol);
