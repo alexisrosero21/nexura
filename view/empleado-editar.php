@@ -1,5 +1,6 @@
 <?php
     $conn = Database::StartUp();   
+    $os=$empleado->roles;
 ?>
 <h1 class="page-header">
     <?php echo $empleado->id != null ? 'Modificar Empleado' : 'Nuevo Empleado'; ?>
@@ -104,56 +105,56 @@
                     <div class="col-sm-10">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="1" id="rol1" 
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("1", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol1">
                                 Desarrollador
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="2" id="rol2" 
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("2", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol2">
                                 Analista
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="3" id="rol3"
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("3", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol3">
                                 Tester
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="4" id="rol4"
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("4", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol4">
                                 Diseñador
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="5" id="rol5"
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("5", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol5">
                                 Profesional PMO
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="6" id="rol6"
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("6", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol6">
                                 Profesional de servicios
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="7" id="rol7"
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("7", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol7">
                                 Auxiliar administrativo
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="8" id="rol8"
-                                name="roles[]">
+                                name="roles[]" <?php echo (in_array("8", $os)) ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="rol8">
                                 Codirector
                             </label>
