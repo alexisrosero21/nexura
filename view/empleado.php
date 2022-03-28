@@ -31,7 +31,7 @@
              $rows = $sth->fetchAll();
                 echo $rows[0]['nombre'];
              ?></td>
-            <td><?php echo $r->boletin; ?></td>
+            <td><?php echo $r->boletin==1 ? 'Si':'No'; ?></td>
             <td>
                 <a  class="btn btn-secondary" href="?c=empleado&a=Act&id=<?php echo $r->id; ?>">Editar</a>
             </td>

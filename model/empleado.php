@@ -139,10 +139,14 @@ class empleado
                    
                 )
 			);
+
+			return $this->pdo->lastInsertId();
+
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
 		}
+
 	}
 
 	public function GuardarRoles( $id, $roles)

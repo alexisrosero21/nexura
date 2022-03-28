@@ -41,14 +41,8 @@ class empleadoController{
         }else{
             $empleado->boletin = 0;
         }
-        if(isset($_REQUEST['sexo'])){
-            $empleado->sexo = $_REQUEST['sexo'];
-        }else{   $empleado->sexo = 0;
-        }
         $empleado->descripcion = $_REQUEST['descripcion'];    
 
-        
-        $empleado->id > 0 ? $this->model->Actualizar($empleado) : $this->model->Registrar($empleado);
         
         if(isset($_REQUEST['roles'])){
             $rol = [];
@@ -61,11 +55,17 @@ class empleadoController{
                 $rol []= $value;
                 $current++;
             }
-        }    
+        }  
         
-        $this->model->GuardarRoles($empleado->id,$rol);
-
-        header('Location: index.php');
+        if($empleado->id > 0){
+            $this->model->Actualizar($empleado);
+            $this->model->GuardarRoles($empleado->id, $rol);
+            header('Location: index.php');
+        }else{
+            $id=$this->model->Registrar($empleado);
+            $this->model->GuardarRoles($id, $rol);
+            header('Location: index.php');
+        }
     }
     
     public function Eliminar(){

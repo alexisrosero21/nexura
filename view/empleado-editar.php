@@ -186,9 +186,20 @@
 <br>
 <script>
 $(document).ready(function() {
-    $("#frm-empleado").submit(function() {
-        confirm("¿Esta seguro de guardar los cambios?");
-        return $(this).validate();
+    $("#frm-empleado").submit(function(evt) {
+        if (!document.querySelector('input[name="sexo"]:checked')) {
+        alert("Debe seleccionar un sexo");
+        evt.preventDefault();
+    } else{
+        if (!document.querySelector('input[name="roles[]"]:checked')) {
+            alert('Debes elegir al menos un rol');
+            evt.preventDefault();
+        }   else {
+            return $(this).validate();
+        }
+    }
     });
 })
+
+
 </script>
